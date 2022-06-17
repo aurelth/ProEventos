@@ -21,14 +21,15 @@ namespace ProEventos.API.Controllers
 
         [HttpGet]
         public IEnumerable<Evento> Get()
-        {    
-            return _context.Eventos.ToList();            
+        {   
+            var eventList =  _context.Eventos.ToList();
+            return eventList;            
         }
 
         [HttpGet("{id}")]
         public Evento GetById(int id)
-        {    
-            return _context.Eventos.FirstOrDefault(evento => evento.EventoId.Equals(id));            
+        {            
+            return _context.Eventos.FirstOrDefault(evento => evento.EventoId.Equals(id));
         }
     }
 }
